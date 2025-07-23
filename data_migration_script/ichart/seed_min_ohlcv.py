@@ -147,7 +147,7 @@ def _get_headers(session_token: str) -> dict:
     }
 
 def generate_url(user_name, session_token, instrument_contract: str) -> str:
-    base_url = f'{IChartURL.BASE_URL}{IChartURL.DATA_URL}'
+    base_url = f'{IChartURL.BASE_URL}/{IChartURL.DATA_URL}'
     params = {
         'symbol': instrument_contract,
         'resolution': '1',
@@ -171,7 +171,6 @@ def update_prices(user_name, session_token: str) -> None:
 
     try:
         for instrument in session.query(InstrumentDetails).all():
-            print(instrument.__dict__)
             try:
                 response = requests.get(
                     generate_url(user_name,
@@ -201,6 +200,9 @@ def update_prices(user_name, session_token: str) -> None:
 
 
 if __name__ == '__main__':
-    user_id = input('your_user_id')
-    token = input('your_token')
+    # user_id = input('your_user_id')
+    # token = input('your_token')
+
+    user_id = 'Mitesh.Patel'
+    token = '3fb87c0p50t42h3qtm7885jcr1'
     update_prices(user_id, token)
