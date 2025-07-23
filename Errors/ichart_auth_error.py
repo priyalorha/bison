@@ -1,0 +1,2 @@
+class IChartAuthError(Exception):
+    pass

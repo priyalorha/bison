@@ -1,0 +1,2 @@
+class BrokerAuthError(Exception):
+    pass
